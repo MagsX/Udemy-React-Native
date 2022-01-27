@@ -1,7 +1,14 @@
 import React from 'react'
-import { StyleSheet, View} from 'react-native'
+import { SafeAreaView, StyleSheet, View } from 'react-native'
 
-import Pai from './components/indireta/Pai'
+import ListaProdutos from './components/produtos/ListaProdutos'
+// import Familia from './components/relacao/Familia'
+// import Membro from './components/relacao/Membro'
+// import UsuarioLogado from './components/UsuarioLogado'
+// import ParImpar from './components/ParImpar'
+// import Diferenciar from './components/Diferenciar'
+// import ContadorV2 from './components/contador/ContadorV2'
+// import Pai from './components/indireta/Pai'
 // import Pai from './components/direta/Pai'
 // import Contador from './components/Contador'
 // import Botao from './components/Botao'
@@ -12,9 +19,28 @@ import Pai from './components/indireta/Pai'
 // import MinMax from './components/MinMax'
 
 export default () => (
-    <View style={style.App}>
+    <SafeAreaView style={style.App}>
+        <ListaProdutos />
+        {/* 
+        <UsuarioLogado usuario={{nome:"Marco", email:"marco@email.com"}} />
+        <UsuarioLogado usuario={{nome:"Marco", email:""}} />
+        <UsuarioLogado usuario={{nome:"", email:"marco@email.com"}} />
+        <UsuarioLogado usuario={null} />
+        <UsuarioLogado usuario={{}} />
+        <Familia>
+            <Membro nome="Marco" sobrenome="Garcia"></Membro>
+            <Membro nome="Maria" sobrenome="Garcia"></Membro>
+            <Membro nome="Bethânia" sobrenome="Garcia"></Membro>
+        </Familia>
+        <Familia>
+            <Membro nome="Filipe" sobrenome="Silva"></Membro>
+            <Membro nome="Elenir" sobrenome="Silva"></Membro>
+        </Familia>
+        <ParImpar num={4}/>
+        <Diferenciar/>
+        <MinMax min="3" max="20" />
+        <ContadorV2/>
         <Pai/>
-        {/* <MinMax min="3" max="20" />
         <Contador inicial={0} passo={10}/>
         <Contador />
         <Botao/>
@@ -24,8 +50,9 @@ export default () => (
         <CompPadrao />
         <Comp1 />
         <Comp2 />
-        <Primeiro /> */}
-    </View>
+        <Primeiro /> 
+        */}
+    </SafeAreaView>
 )
 
 const style = StyleSheet.create({
