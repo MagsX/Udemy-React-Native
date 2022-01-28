@@ -1,8 +1,6 @@
 import React, { Component } from "react"
-import { Button, StyleSheet, Text, TextInput, View } from "react-native"
+import { Button, Text, TextInput } from "react-native"
 import Estilo from "../estilo"
-
-import MegaNumero from "./MegaNumero"
 
 export default class Mega extends Component {
 
@@ -22,21 +20,16 @@ export default class Mega extends Component {
     }
 
     gerarNumeros = () => {
-        const numeros = Array(this.state.qtdNumeros)
-            .fill()
-            .reduce(n => [...n, this.gerarNumeroUnico(n)], [])
-            .sort((a, b) => a - b)
-        this.setState({ numeros })
-    }
+        const { qtdNumeros } = this.state
+        const numeros = []
 
-    exibirNumeros = () => {
-        const num = this.state.numeros
-        return num.map(num => {
-            return <MegaNumero
-                key={num}
-                num={num}
-            />
-        })
+        for (let i = 0; i < qtdNumeros; i++) {
+            const n = this.gerarNumeroUnico(numeros)
+            numeros.push(n)
+        }
+
+        numeros.sort((a, b) => a - b)
+        this.setState({ numeros })
     }
 
     render() {
@@ -58,19 +51,10 @@ export default class Mega extends Component {
                     title='Gerar'
                     onPress={this.gerarNumeros}
                 />
-                <View style={style.quadroSorteio}>
-                    {this.exibirNumeros()}
-                </View>
+                <Text>
+                    {this.state.numeros.join(',')}
+                </Text>
             </>
         )
     }
 }
-
-const style = StyleSheet.create({
-    quadroSorteio:{
-        flexDirection: 'row',
-        marginTop: 20,
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-    }
-})
