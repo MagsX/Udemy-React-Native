@@ -72,5 +72,6 @@ const style = StyleSheet.create({
         marginTop: 20,
         flexWrap: 'wrap',
         justifyContent: 'center',
+        paddingHorizontal: 20,
     }
 })
